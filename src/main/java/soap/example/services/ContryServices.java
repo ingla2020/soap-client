@@ -13,15 +13,24 @@ import java.util.List;
 @Service
 public class ContryServices {
 
-    @Autowired
-    CountryInfoService countryInfoService;
-
     public List<TCountryInfo> myService(){
+        CountryInfoService countryInfoService = countryInfoService();
         return countryInfoService
                 .getCountryInfoServiceSoap()
                 .fullCountryInfoAllCountries()
                 .getTCountryInfo();
     }
 
+
+    static final String URLSERVICES = "http://www.oorsprong.org/websamples.countryinfo";
+    static final String LOCALPORT ="CountryInfoService";
+
+    public CountryInfoService countryInfoService(){
+        try {
+            return new CountryInfoService(new URL("classpath:wsdl/country.wsdl"), new QName(URLSERVICES,LOCALPORT));
+        } catch (MalformedURLException e) {
+        }
+        return null;
+    }
 
 }

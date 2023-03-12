@@ -8,12 +8,12 @@ import javax.xml.namespace.QName;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-@Configuration
+//@Configuration
 public class CalculatorConfiguration {
     static final String URLSERVICES = "http://tempuri.org/";
     static final String LOCALPORT ="Calculator";
 
-    @Bean
+    //@Bean
     public Calculator calculatorSoapService(){
         try {
             return new Calculator(new URL("classpath:wsdl/calculator.wsdl"), new QName(URLSERVICES,LOCALPORT));

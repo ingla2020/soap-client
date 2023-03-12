@@ -14,11 +14,14 @@ import java.util.List;
 @RequestMapping("/api")
 public class CountryController {
 
-    @Autowired
     ContryServices contryServices;
 
-    @Autowired
     CalculadorServices calculadorServices;
+
+    public CountryController(ContryServices contryServices, CalculadorServices calculadorServices) {
+        this.contryServices = contryServices;
+        this.calculadorServices = calculadorServices;
+    }
 
     @GetMapping("all")
     public List<TCountryInfo> getAll(){

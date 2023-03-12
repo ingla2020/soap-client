@@ -9,13 +9,13 @@ import javax.xml.namespace.QName;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-@Configuration
+//@Configuration
 public class ServiceConfiguration {
 
     static final String URLSERVICES = "http://www.oorsprong.org/websamples.countryinfo";
     static final String LOCALPORT ="CountryInfoService";
 
-    @Bean
+    //@Bean
     public CountryInfoService countryInfoService(){
         try {
             return new CountryInfoService(new URL("classpath:wsdl/country.wsdl"), new QName(URLSERVICES,LOCALPORT));
